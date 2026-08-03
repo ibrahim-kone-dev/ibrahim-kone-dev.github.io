@@ -1,0 +1,322 @@
+/* ============================================================
+   Ibrahim Kone | Portfolio
+   Minimalist, editorial, zero-dependency stylesheet.
+   ------------------------------------------------------------
+   Palette
+   ------------------------------------------------------------
+   Background ............ #fcfcfc (off-white)
+   Text .................. #1a1a1a (near-black charcoal)
+   Borders ............... #e5e5e5 (subtle hairline)
+   Accent ................ #004080 (single deep blue)
+   ============================================================ */
+
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #fcfcfc;
+  --text: #1a1a1a;
+  --muted: #555;
+  --border: #e5e5e5;
+  --accent: #004080;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --maxw: 760px; /* comfortable reading measure */
+}
+
+html {
+  scroll-behavior: smooth; /* gentle, unobtrusive jump-link smoothing */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Shared horizontal wrapper */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 96px 0 72px;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 60ch;
+  margin-bottom: 30px;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 72px 0;
+}
+
+.section.alt {
+  background: #f6f6f6; /* faint contrast band, stays in neutral palette */
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title,
+.footer-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 26px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--text);
+  width: fit-content;
+}
+
+/* About */
+.section p {
+  margin-bottom: 1em;
+  max-width: 65ch;
+}
+
+/* ---------- Projects ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--bg);
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.project-desc {
+  font-size: 0.98rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Semantic tag chips */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  background: #eef3f8;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: auto; /* pin links to the card bottom */
+  padding-top: 4px;
+}
+
+/* ---------- Education ---------- */
+.edu-block {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.edu-block h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.edu-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.cert-block {
+  margin-top: 26px;
+}
+
+.cert-block h3 {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+.cert-list {
+  list-style: none;
+}
+
+.cert-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cert-list .status {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+/* ---------- Footer / contact ---------- */
+.site-footer {
+  background: var(--text);
+  color: #fff;
+  padding: 64px 0 40px;
+}
+
+.site-footer a {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.site-footer a:hover {
+  border-bottom-color: #fff;
+}
+
+.footer-title {
+  border-bottom-color: #fff;
+}
+
+.footer-copy {
+  font-size: 1.05rem;
+  color: #ccc;
+  margin-bottom: 24px;
+}
+
+.contact-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: #999;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 20px;
+}
+
+/* ---------- Responsive (mobile) ---------- */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 64px 0 48px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .hero-links {
+    gap: 14px;
+  }
+}
