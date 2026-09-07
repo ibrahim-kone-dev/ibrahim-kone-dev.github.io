@@ -9,7 +9,12 @@
 
   <script>
     // Runs before anything paints so a dark-mode visitor never sees a white flash.
-    const saved = localStorage.getItem('theme');
+    let saved = null;
+    try {
+      saved = localStorage.getItem('theme');
+    } catch (err) {
+      // Storage is blocked when the page is opened straight off the file system.
+    }
     if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.dataset.theme = 'dark';
     }
@@ -40,166 +45,20 @@
 
   <main id="top">
 
-    <section class="section">
+    <section class="section resume-page">
       <div class="container">
-        <p class="eyebrow">Resume</p>
-        <h1 class="page-title">Ibrahim Kone</h1>
-        <p class="resume-contact">
-          College Park, MD &middot;
-          <a href="mailto:ikone1@terpmail.umd.edu">ikone1@terpmail.umd.edu</a> &middot;
-          <a href="https://www.linkedin.com/in/ibrahim-p-kone" target="_blank" rel="noopener noreferrer">LinkedIn</a> &middot;
-          <a href="https://github.com/ibrahim-kone-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </p>
+        <h1 class="page-title">Resume</h1>
+
+        <iframe
+          class="resume-frame"
+          src="assets/Ibrahim_Kone_Resume.pdf#view=FitH&navpanes=0"
+          title="Ibrahim Kone resume"></iframe>
+
         <p class="page-note">
-          This is the same content as my resume PDF.
-          <a href="assets/Ibrahim_Kone_Resume.pdf">Download the PDF version</a>.
+          Phone browsers often will not show a PDF inline. If the preview above
+          is blank,
+          <a href="assets/Ibrahim_Kone_Resume.pdf">open the PDF directly</a>.
         </p>
-
-        <section class="resume-section">
-          <h2>Education</h2>
-
-          <article class="resume-entry">
-            <div class="entry-head">
-              <h3>University of Maryland, College Park</h3>
-              <span class="entry-date">Expected May 2030</span>
-            </div>
-            <p class="entry-meta">B.S. Information Science, Data Science cognate &middot; College Park, MD</p>
-            <p>Coursework so far: Introduction to Information Science, Elementary Statistics and Probability.</p>
-          </article>
-
-          <article class="resume-entry">
-            <div class="entry-head">
-              <h3>International Community School of Abidjan</h3>
-              <span class="entry-date">June 2026</span>
-            </div>
-            <p class="entry-meta">International Baccalaureate Diploma &middot; Abidjan, C&ocirc;te d'Ivoire</p>
-            <p>
-              Higher Level: Computer Science, Mathematics AI, English A Language and Literature.
-              Standard Level: Economics, Business Management, French A.
-            </p>
-          </article>
-        </section>
-
-        <section class="resume-section">
-          <h2>Skills</h2>
-          <dl class="skills">
-            <dt>Programming</dt>
-            <dd>Python, TypeScript, JavaScript, HTML/CSS</dd>
-
-            <dt>Tools</dt>
-            <dd>Angular, Tailwind CSS, Node.js, Git, GitHub, Microsoft Excel</dd>
-
-            <dt>Languages</dt>
-            <dd>French (native), English (fluent)</dd>
-          </dl>
-        </section>
-
-        <section class="resume-section">
-          <h2>Experience</h2>
-
-          <article class="resume-entry">
-            <div class="entry-head">
-              <h3>Financial Systems Optimization Intern, CDCA</h3>
-              <span class="entry-date">Jun to Sep 2025</span>
-            </div>
-            <p class="entry-meta">Abidjan, C&ocirc;te d'Ivoire</p>
-            <ul>
-              <li>
-                Wrote Python scripts to clean and reformat the weekly financial
-                datasets in Excel, cutting a two-hour manual task down to about
-                fifteen minutes.
-              </li>
-              <li>
-                Automated the repeated data entry across the weekly spreadsheets,
-                which cut formatting errors and kept the records consistent from
-                one week to the next.
-              </li>
-            </ul>
-          </article>
-        </section>
-
-        <section class="resume-section">
-          <h2>Projects</h2>
-
-          <article class="resume-entry">
-            <div class="entry-head">
-              <h3>Personal portfolio</h3>
-              <span class="entry-date">2026</span>
-            </div>
-            <p class="entry-meta">HTML, CSS, JavaScript, GitHub Pages</p>
-            <ul>
-              <li>
-                Built and deployed a responsive portfolio from scratch with no
-                frameworks and no dependencies, hosted on GitHub Pages.
-              </li>
-              <li>
-                Used Git for version control and GitHub Pages for deployment.
-                Live at
-                <a href="https://ibrahim-kone-dev.github.io" target="_blank" rel="noopener noreferrer">ibrahim-kone-dev.github.io</a>.
-              </li>
-            </ul>
-          </article>
-        </section>
-
-        <section class="resume-section">
-          <h2>Leadership and service</h2>
-
-          <article class="resume-entry">
-            <div class="entry-head">
-              <h3>Student Lead, ICSA AI Think Tank</h3>
-              <span class="entry-date">2024 to 2026</span>
-            </div>
-            <ul>
-              <li>
-                Led the research and drafting behind the school's AI use
-                guidelines. The recommendations were formally adopted by the
-                school.
-              </li>
-              <li>
-                Presented the findings to faculty and administrators after three
-                months of preparation.
-              </li>
-            </ul>
-          </article>
-
-          <article class="resume-entry">
-            <div class="entry-head">
-              <h3>Founder and President, Project Supply 4 Students</h3>
-              <span class="entry-date">2022 to 2026</span>
-            </div>
-            <ul>
-              <li>
-                Started a school supply drive that raised over $6,000 and
-                partnered with two local schools, reaching more than 300
-                students.
-              </li>
-            </ul>
-          </article>
-
-          <article class="resume-entry">
-            <div class="entry-head">
-              <h3>Director, Help Us Help Them</h3>
-              <span class="entry-date">2023 to 2026</span>
-            </div>
-            <ul>
-              <li>
-                Ran a humanitarian project for displaced families, raising over
-                $3,000 in materials and coordinating the distribution logistics.
-              </li>
-            </ul>
-          </article>
-        </section>
-
-        <section class="resume-section">
-          <h2>Honors</h2>
-          <ul class="honors">
-            <li>Student High Honor Roll, 9th and 10th grade</li>
-            <li>Student of the Year, French A, 11th grade</li>
-            <li>Harvard Model Congress Young Global Leaders Program</li>
-            <li>Leadership Summit Certificate</li>
-          </ul>
-        </section>
-
       </div>
     </section>
 

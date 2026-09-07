@@ -9,7 +9,12 @@
 
   <script>
     // Runs before anything paints so a dark-mode visitor never sees a white flash.
-    const saved = localStorage.getItem('theme');
+    let saved = null;
+    try {
+      saved = localStorage.getItem('theme');
+    } catch (err) {
+      // Storage is blocked when the page is opened straight off the file system.
+    }
     if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.dataset.theme = 'dark';
     }

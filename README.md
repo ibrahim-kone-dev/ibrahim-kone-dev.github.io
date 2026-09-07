@@ -9,7 +9,7 @@ Live site: https://ibrahim-kone-dev.github.io
 
 - index.html (home page and the about section)
 - projects.html (the projects)
-- resume.html (my resume as a normal web page)
+- resume.html (embeds the resume PDF in an iframe so it can be read in place)
 - styles.css (custom styles, no frameworks)
 - main.js (dark/light toggle, plus the copyright year)
 - assets/Ibrahim_Kone_Resume.pdf (resume PDF)
@@ -42,8 +42,8 @@ easier to check on a server.
 
 ## Reminders for updates
 
-- If I update my resume, both assets/Ibrahim_Kone_Resume.pdf and resume.html
-  need changing. They are separate copies of the same thing.
+- To update my resume, overwrite assets/Ibrahim_Kone_Resume.pdf using the same
+  filename. resume.html points at that path, so nothing else needs changing.
 - New projects go in the grid in projects.html. Copy an existing
   `<article class="project-card">` and fill it in.
 - The header and footer are duplicated across all three pages. If I add a page

@@ -263,81 +263,16 @@ a:hover {
 }
 
 /* ---------- Resume ---------- */
-.resume-contact {
-  color: var(--muted);
-  font-size: 0.95rem;
+.resume-page .container {
+  max-width: 940px; /* the PDF needs more room than the reading measure */
 }
 
-.resume-section {
-  margin-top: 44px;
-}
-
-.resume-section h2 {
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 20px;
-}
-
-.resume-entry {
-  margin-bottom: 26px;
-}
-
-.entry-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 4px 16px;
-}
-
-.entry-head h3 {
-  font-size: 1.05rem;
-}
-
-.entry-date {
-  font-size: 0.9rem;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.resume-entry p {
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-}
-
-.resume-entry .entry-meta {
-  color: var(--muted);
-}
-
-.resume-entry ul,
-.honors {
-  padding-left: 20px;
-  margin-top: 8px;
-}
-
-.resume-entry li,
-.honors li {
-  margin-bottom: 6px;
-  max-width: 65ch;
-}
-
-.skills {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 10px 16px;
-}
-
-.skills dt {
-  font-weight: 600;
-}
-
-.skills dd {
-  color: var(--muted);
+.resume-frame {
+  width: 100%;
+  aspect-ratio: 8.5 / 11; /* one US Letter page */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
 }
 
 /* ---------- Footer / contact ---------- */
@@ -407,35 +342,5 @@ a:hover {
 
   .hero-links {
     gap: 14px;
-  }
-
-  .skills {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
-  .skills dd {
-    margin-bottom: 12px;
-  }
-}
-
-/* Printing is mostly for the resume page, so drop the header and footer. */
-@media print {
-  .site-header,
-  .site-footer,
-  .page-note {
-    display: none;
-  }
-
-  .section {
-    padding: 0;
-  }
-
-  body {
-    font-size: 12px;
-  }
-
-  a {
-    color: inherit;
   }
 }

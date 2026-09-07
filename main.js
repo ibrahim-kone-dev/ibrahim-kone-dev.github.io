@@ -10,8 +10,14 @@ function updateToggleLabel() {
 
 toggle.addEventListener('click', () => {
   root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('theme', root.dataset.theme);
   updateToggleLabel();
+
+  try {
+    localStorage.setItem('theme', root.dataset.theme);
+  } catch (err) {
+    // Same file-system case as the script in the head. The toggle still works,
+    // the choice just does not carry over to the next page.
+  }
 });
 
 updateToggleLabel();
