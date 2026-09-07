@@ -176,12 +176,6 @@ a:hover {
   padding: 72px 0;
 }
 
-.section.alt {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
 .section-title,
 .footer-title {
   font-size: 1.35rem;
@@ -233,7 +227,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: var(--bg);
+  background: var(--surface);
 }
 
 .project-card h2 {
