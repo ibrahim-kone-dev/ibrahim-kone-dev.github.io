@@ -6,6 +6,14 @@
   <meta name="description" content="Ibrahim Kone, Information Science student at UMD College Park. Aspiring data analyst & technologist. Projects, education, and contact." />
   <title>Ibrahim Kone, Information Science @ UMD</title>
   <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    // Runs before anything paints so a dark-mode visitor never sees a white flash.
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
 </head>
 <body>
 
@@ -16,15 +24,19 @@
       <!-- Wordmark / home link -->
       <a class="brand" href="#top" aria-label="Ibrahim Kone, back to top">Ibrahim Kone</a>
 
-      <!-- Primary navigation (jump links) -->
-      <nav aria-label="Primary">
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="header-right">
+        <!-- Primary navigation (jump links) -->
+        <nav aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" id="theme-toggle" class="theme-toggle">Dark mode</button>
+      </div>
 
     </div>
   </header>
@@ -141,10 +153,7 @@
 
   </main>
 
-  <!-- Keep the copyright year current. No framework needed. -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="main.js"></script>
 
 </body>
 </html>
