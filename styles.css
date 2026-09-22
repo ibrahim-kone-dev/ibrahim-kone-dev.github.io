@@ -1,0 +1,346 @@
+/* ============================================================
+   Ibrahim Kone | Portfolio
+   Minimalist, editorial, zero-dependency stylesheet.
+   Colors live in the two custom-property blocks below so the
+   dark/light toggle only has to flip one attribute on <html>.
+   ============================================================ */
+
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: light;
+  --bg: #fcfcfc;
+  --surface: #f6f6f6;
+  --text: #1a1a1a;
+  --muted: #555;
+  --border: #e5e5e5;
+  --accent: #004080;
+  --tag-bg: #eef3f8;
+  --footer-bg: #1a1a1a;
+  --footer-text: #fff;
+  --footer-muted: #ccc;
+
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --maxw: 760px; /* comfortable reading measure */
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181c;
+  --surface: #1d2025;
+  --text: #e6e6e6;
+  --muted: #9aa0a6;
+  --border: #2d3138;
+  --accent: #7fb3ff; /* #004080 is unreadable on a dark background */
+  --tag-bg: #223040;
+  --footer-bg: #101215;
+  --footer-text: #f0f0f0;
+  --footer-muted: #9aa0a6;
+}
+
+html {
+  scroll-behavior: smooth; /* gentle, unobtrusive jump-link smoothing */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Shared horizontal wrapper */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.nav-links a[aria-current="page"] {
+  border-bottom-color: var(--text);
+}
+
+.theme-toggle {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 96px 0 72px;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 60ch;
+  margin-bottom: 30px;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 72px 0;
+}
+
+.section-title,
+.footer-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 26px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--text);
+  width: fit-content;
+}
+
+/* About */
+.section p {
+  margin-bottom: 1em;
+  max-width: 65ch;
+}
+
+/* ---------- Inner pages (projects, resume) ---------- */
+.page-title {
+  font-size: clamp(1.9rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.page-note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 28px;
+}
+
+/* ---------- Projects ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--surface);
+}
+
+.project-card h2 {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.project-desc {
+  font-size: 0.98rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Semantic tag chips */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: auto; /* pin links to the card bottom */
+  padding-top: 4px;
+}
+
+/* ---------- Resume ---------- */
+.resume-page .container {
+  max-width: 940px; /* the PDF needs more room than the reading measure */
+}
+
+.resume-frame {
+  width: 100%;
+  aspect-ratio: 8.5 / 11; /* one US Letter page */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+/* ---------- Footer / contact ---------- */
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 64px 0 40px;
+}
+
+.site-footer a {
+  color: var(--footer-text);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.site-footer a:hover {
+  border-bottom-color: var(--footer-text);
+}
+
+.footer-title {
+  border-bottom-color: var(--footer-text);
+}
+
+.footer-copy {
+  font-size: 1.05rem;
+  color: var(--footer-muted);
+  margin-bottom: 24px;
+}
+
+.contact-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: var(--footer-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 20px;
+}
+
+/* ---------- Responsive (mobile) ---------- */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 64px 0 48px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .hero-links {
+    gap: 14px;
+  }
+}
